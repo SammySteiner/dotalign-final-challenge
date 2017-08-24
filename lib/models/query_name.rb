@@ -10,17 +10,13 @@ class QueryName
   def initialize(name)
     @name = name
     @@all << self
-    @id = @@all.count + 1
+    @id = @@all.count
     save
   end
 
   def save
     query = "INSERT INTO query_name (query_name) VALUES ('#{@name}');"
     @@db.execute(query)
-  end
-
-  def self.all
-    @@all
   end
 
   def self.find_by(name)
