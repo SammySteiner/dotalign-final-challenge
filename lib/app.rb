@@ -20,8 +20,9 @@ def format_results(unformatted_results)
   query_names = results.map { |r| r[0] }
   longest = query_names.max_by(&:length).length
   space = ' '
+  dash = '-'
   puts "Query Name #{space * (longest - 10)}| Average Speed"
-  puts "---------------------#{'-' * longest}"
+  puts "---------------------#{dash * longest}"
   results.each do |r|
     puts "#{r[0]}#{space * (longest - r[0].length)} | #{r[1].to_s}"
   end
@@ -29,12 +30,11 @@ end
 
 def help
   help = <<-HELP
-I accept the following commands:
-- help : displays this help message
-- 1    : accepts a file path and returns a report
-- exit : exits this program
-HELP
-
+    I accept the following commands:
+    - help : displays this help message
+    - 1    : accepts a file path and returns a report
+    - exit : exits this program
+  HELP
   puts help
 end
 
