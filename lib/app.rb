@@ -30,10 +30,10 @@ end
 
 def help
   help = <<-HELP
-    I accept the following commands:
-    - help : displays this help message
-    - 1    : accepts a file path and returns a report
-    - exit : exits this program
+I accept the following commands:
+- help : displays this help message
+- 1    : accepts a file path and returns a report
+- exit : exits this program
   HELP
   puts help
 end
