@@ -17,10 +17,13 @@ end
 
 def format_results(unformatted_results)
   results = run_sql_query
-  puts 'Query Name      |   Average Speed'
-  puts "---------------------------------"
+  query_names = results.map { |r| r[0] }
+  longest = query_names.max_by(&:length).length
+  space = ' '
+  puts "Query Name #{space * (longest - 10)}| Average Speed"
+  puts "---------------------#{'-' * longest}"
   results.each do |r|
-    puts r[0] + ' | ' + r[1].to_s
+    puts "#{r[0]}#{space * (longest - r[0].length)} | #{r[1].to_s}"
   end
 end
 
